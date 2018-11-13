@@ -20,7 +20,7 @@ import {default as config} from "../configs/config.js"
         const newsItems = document.getElementById(newsItemsId);         
 
         data.articles.sort((first, second) => second.title.localeCompare(first.title)).map(news =>
-        newsItems.insertAdjacentHTML(positionToPasteNews, newsTemplate(news)));        
+        newsItems.insertAdjacentHTML(positionToPasteNews, template(news)));        
         newsHeader.insertAdjacentText(positionToPasteNews, newsName);  
          
     }, (error) => {alert(error)})
