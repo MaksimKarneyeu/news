@@ -13,6 +13,7 @@ import {default as config} from "../configs/config.js"
     const newsHeaderId = "news-header";
     const newsItemsId = "news-items";
     const positionToPasteNews = "afterbegin";
+    const template = newsTemplate;
     
     callManager.doGet(newsUrl, (data) => {        
         const newsHeader = document.getElementById(newsHeaderId);
