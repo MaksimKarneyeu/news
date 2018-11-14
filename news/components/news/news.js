@@ -11,7 +11,7 @@ const newsHeaderId = "news-header";
 const newsItemsId = "news-items";
 const positionToPasteNews = "afterbegin";
 
-fetch(newsUrl).then(response => {return response}).then(data => {
+fetch(newsUrl).then((response) => {return response}).then(data => {
     const newsHeader = document.getElementById(newsHeaderId);
     const newsItems = document.getElementById(newsItemsId);
 
