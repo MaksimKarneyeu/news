@@ -4,7 +4,7 @@ export default class CallManager{
             if (!response.ok) {
                 throw Error(response.statusText);
             }
-            return response;
+            return response.json();
         });     
     }
 }

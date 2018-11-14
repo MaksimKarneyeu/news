@@ -9,7 +9,7 @@ const positionToPasteChannel = "afterbegin";
 CallManager.doGet(channelsUrl).then(data => {
     let newsChannel = document.getElementById(newsChannelsId);
 
-    data.json().sources.sort((first, second) => second.name.localeCompare(first.name)).map(channel =>
+    data.sources.sort((first, second) => second.name.localeCompare(first.name)).map(channel =>
         newsChannel.insertAdjacentHTML(positionToPasteChannel, render(channel)))
 })
     .catch(error => { alert(error) });
