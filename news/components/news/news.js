@@ -1,5 +1,5 @@
 import { render } from "./news.template.js"
-import CallManager from "./shared/callManager.js";
+import CallManager from "../shared/callManager.js";
 import Config from "../../configs/config.js"
 
 const searchParams = new URLSearchParams(window.location.search);
