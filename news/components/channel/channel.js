@@ -5,7 +5,7 @@ const channelsUrl = `${Config.channelsEndpoint}?apiKey=${Config.apiKey}`;
 const newsChannelsId = "news-channels";
 const positionToPasteChannel = "afterbegin";
 
-fetch(channelsUrl).then(response => response).then(data => {
+fetch(channelsUrl).then(response => {return response}).then(data => {
     let newsChannel = document.getElementById(newsChannelsId);
 
     data.json().sources.sort((first, second) => second.name.localeCompare(first.name)).map(channel =>
