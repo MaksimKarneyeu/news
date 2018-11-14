@@ -1,6 +1,5 @@
 import { render } from "./news.template.js"
-import CallManager from "../../shared/callManager.js"
-import Config from "../../../configs/config.js"
+import Config from "../../configs/config.js"
 
 const searchParams = new URLSearchParams(window.location.search);
 const newsId = searchParams.get("id");
@@ -12,7 +11,7 @@ const newsHeaderId = "news-header";
 const newsItemsId = "news-items";
 const positionToPasteNews = "afterbegin";
 
-CallManager.doGet(newsUrl, (data) => {
+fetch(newsUrl).then(data => {
     const newsHeader = document.getElementById(newsHeaderId);
     const newsItems = document.getElementById(newsItemsId);
 
@@ -20,4 +19,4 @@ CallManager.doGet(newsUrl, (data) => {
         newsItems.insertAdjacentHTML(positionToPasteNews, render(news)));
     newsHeader.insertAdjacentText(positionToPasteNews, newsName);
 
-}, (error) => { alert(error) })
+}).catch(error => { alert(error) });
