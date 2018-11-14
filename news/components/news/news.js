@@ -1,4 +1,5 @@
 import { render } from "./news.template.js"
+import CallManager from "./shared/callManager.js";
 import Config from "../../configs/config.js"
 
 const searchParams = new URLSearchParams(window.location.search);
@@ -11,7 +12,7 @@ const newsHeaderId = "news-header";
 const newsItemsId = "news-items";
 const positionToPasteNews = "afterbegin";
 
-fetch(newsUrl).then((response) => {return response}).then(data => {
+CallManager.doGet(newsUrl).then(data => {
     const newsHeader = document.getElementById(newsHeaderId);
     const newsItems = document.getElementById(newsItemsId);
 
