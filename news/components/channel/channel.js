@@ -9,7 +9,7 @@ fetch(channelsUrl)
     .then(data => {
         let newsChannel = document.getElementById(newsChannelsId);
 
-        data.sources.sort((first, second) => second.name.localeCompare(first.name)).map(channel =>
+        data.json().sources.sort((first, second) => second.name.localeCompare(first.name)).map(channel =>
             newsChannel.insertAdjacentHTML(positionToPasteChannel, render(channel)))
     })
     .catch(error => { alert(error) });

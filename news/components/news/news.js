@@ -15,7 +15,7 @@ fetch(newsUrl).then(data => {
     const newsHeader = document.getElementById(newsHeaderId);
     const newsItems = document.getElementById(newsItemsId);
 
-    data.articles.sort((first, second) => second.title.localeCompare(first.title)).map(news =>
+    data.json().articles.sort((first, second) => second.title.localeCompare(first.title)).map(news =>
         newsItems.insertAdjacentHTML(positionToPasteNews, render(news)));
     newsHeader.insertAdjacentText(positionToPasteNews, newsName);
 
