@@ -1,6 +1,6 @@
 import { render } from "./channel.template.js"
-import CallManager from "../components/shared/callManager.js"
-import Config from "../configs/config.js"
+import CallManager from "../../shared/callManager.js"
+import Config from "../../../configs/config.js"
 
 const channelsUrl = `${Config.channelsEndpoint}?apiKey=${Config.apiKey}`;
 const newsChannelsId = "news-channels";
