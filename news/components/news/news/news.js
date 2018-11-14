@@ -1,6 +1,6 @@
 import { render } from "./news.template.js"
-import CallManager from "~/components/shared/callManager.js"
-import Config from "~/configs/config.js"
+import CallManager from "../components/shared/callManager.js"
+import Config from "../configs/config.js"
 
 const searchParams = new URLSearchParams(window.location.search);
 const newsId = searchParams.get("id");
