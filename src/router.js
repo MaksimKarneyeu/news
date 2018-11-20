@@ -2,7 +2,7 @@ import NewsWidget from "./widgets/news-widget/news-widget.js";
 import ChannelWidget from "./widgets/channel-widget/channel-widget.js";
 
 export default {
-  '/index.html': () => {
+  '/news/': () => {
     const container = document.querySelector('.container')
     var widget = new ChannelWidget(container);
     const item = document.querySelector('#news-channels');
