@@ -9,7 +9,7 @@ export default {
     widget.setRenderElements(item);
     return widget;
   },
-  '/news/news': () => {
+  '/news/n': () => {
     const searchParams = new URLSearchParams(window.location.search);
     const container = document.querySelector('.container');
     const widget = new NewsWidget(container, searchParams);
