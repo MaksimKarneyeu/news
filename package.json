@@ -1,0 +1,41 @@
+{
+  "name": "news",
+  "version": "1.0.0",
+  "description": "News project",
+  "main": "index.html",
+  "scripts": {
+    "dev": "webpack --mode development ./src/news/components/news/news.js --output ./dist/main.js",
+    "build": "webpack --mode production ./src/news/components/news/news.js --output ./dist/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:MaksimKarneyeu/news.git"
+  },
+  "keywords": [
+    "news"
+  ],
+  "author": "Maksim Karneyeu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maksimkarneyeu/news/issues"
+  },
+  "homepage": "https://github.com/maksimkarneyeu/news#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-external-helpers": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.6",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.1.5",
+    "@babel/runtime-corejs2": "^7.1.5",
+    "npm": "^6.4.1"
+  }
+}

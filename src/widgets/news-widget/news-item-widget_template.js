@@ -1,4 +1,4 @@
-export function render(news) {
+export default function renderItem(news) {
   return `<li class="media">
             <a class="pull-left" href="${news.url}">
               <img class="media-object preview-image" src="${news.urlToImage}">
