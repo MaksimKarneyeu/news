@@ -4,17 +4,22 @@ import CallService from "../../services/call-service.js";
 import Config from "../../config.js"
 
 export default class NewsWidget {
-    constructor(container, searchParams) {      
-        this.newsName = searchParams.get("name");
-        this.positionToPasteNews = "afterbegin";
-        this.newsUri = `${Config.newsEndpoint}?sources=${searchParams.get("id")}
-        &apiKey=${Config.apiKey}&pagesize=${Config.pageSize}&page=${Config.page}`;
-        container.innerHTML = RenderContainer();
-    } 
+    constructor(container, channel) {
+        this.container = container;        
+        this.channel = channel;         
+        
+        this.newsUrl = `${Config.newsEndpoint}?sources=${this.channel.channelId}
+        &apiKey=${Config.apiKey}&pagesize=${Config.newsPageSize}&page=${Config.newsPage}`;        
+    }
+
+    initContainer() {        
+        this.container.innerHTML = RenderContainer();
+    }
 
     setRenderElements(elements) {
-        this.item = elements.item;
+        this.items = elements.items;
         this.header = elements.header;
+        this.bcActive = elements.bcActive;
     }
 
     async bootstrap() {
@@ -22,14 +27,15 @@ export default class NewsWidget {
         this.render(data);
     }
 
-    async loadData() {
-        const data = await CallService.doGet(this.newsUrl);
-        return data.articles.sort((first, second) => second.title.localeCompare(first.title));
+    async loadData() { 
+        const response = await CallService.doGet(this.newsUrl);
+        const data = await response;
+        return !response.ok ? data.articles : [];  
     }
 
     render(data) {
-        this.container.innerHTML = RenderContainer();
-        data.map(item => this.item.innerHTML += RenderItem(item));
-        this.header.innerHTML = this.newsName;
+        data.map(element => this.items.innerHTML += RenderItem(element));
+        this.header.innerHTML = this.channel.channelName;
+        this.bcActive.innerHTML = this.channel.channelName;
     }
 }
