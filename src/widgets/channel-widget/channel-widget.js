@@ -1,18 +1,13 @@
-import RenderContainer from "./channel-widget_template.js"
-import RenderItem from "./channel-item-widget_template.js"
+import RenderItem from "./channel-item-widget_template.js";
 import CallService from "../../services/call-service.js";
-import Config from "../../config.js"
+import Config from "../../config.json";
 import Init from "../../widget-initializer.js";
 
 export default class ChannelWidget {
     constructor(container) {
         this.container = container;
         this.channelsUrl = `${Config.channelsEndpoint}?apiKey=${Config.apiKey}`;   
-    }
-
-    initContainer() {
-        this.container.innerHTML = RenderContainer();
-    }
+    }  
 
     setRenderElements(items) {
         this.items = items;

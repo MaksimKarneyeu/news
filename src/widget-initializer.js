@@ -1,14 +1,12 @@
+import "./styles.scss";
 import NewsWidget from "./widgets/news-widget/news-widget.js";
 import ChannelWidget from "./widgets/channel-widget/channel-widget.js";
 
 export default {
-  'channel-widget': () => {
-    const container = document.querySelector(".container");   
-    const channelWidget = new ChannelWidget(container);
-    channelWidget.initContainer();
+  'channel-widget': () => {    
+    const channelWidget = new ChannelWidget();   
     const items = document.querySelector('#news-channels');
-    channelWidget.setRenderElements(items);
-    
+    channelWidget.setRenderElements(items); 
     return channelWidget;
   },
   'news-widget': (channelItem) => {

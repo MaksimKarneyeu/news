@@ -1,7 +1,7 @@
 import RenderContainer from "./news-widget_template.js"
 import RenderItem from "./news-item-widget_template.js"
 import CallService from "../../services/call-service.js";
-import Config from "../../config.js"
+import Config from "../../config.json";
 
 export default class NewsWidget {
     constructor(container, channel) {

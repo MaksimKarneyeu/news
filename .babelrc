@@ -1,20 +1,11 @@
 {
     "presets": [
         [
-            "@babel/preset-env",
-            {
-                "targets": {
-                    "browsers": [
-                        "last 2 versions",
-                        "ie >= 11"
-                    ]                    
-                }     
-            }
-        ],
-        ["minify"]     
+            "@babel/preset-env"            
+        ]       
     ],
     "plugins": [
         "@babel/plugin-transform-runtime",
-        "es6-promise"
+        "@babel/plugin-syntax-dynamic-import"        
     ]
 }
