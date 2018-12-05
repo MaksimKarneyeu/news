@@ -1,13 +1,20 @@
-import RenderContainer from "./app_template.js"
+import Template from "./app_template.js"
+import RenderStrategyService from "./services/render-strategy-service.js"
+import CommonRenderer from "./services/common-renderer.js"
+import Controller from "./controllers/controller.js"
 
-window.onload = async () => {
+document.addEventListener('DOMContentLoaded', async () => {
 
     const container = document.querySelector(".container");
-    container.innerHTML += RenderContainer();
+    
+    const commonRenderer = new CommonRenderer();
+    const renderStrategyService = new RenderStrategyService(commonRenderer);
 
-    document.querySelector('#show-news-btn').onclick = async () => {
-        const init = await import(/* webpackChunkName: "widget-initializer" */ "./widget-initializer.js");
-        const channelWidget = init.default['channel-widget']();
+    renderStrategyService.render(container, Template());
+
+    document.querySelector('#show-news-btn').onclick = async () => {          
+        const controller = new Controller();
+        const channelWidget = await controller.getChannels();
         await channelWidget.bootstrap();
     }
-}
+});

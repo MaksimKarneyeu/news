@@ -4,6 +4,19 @@
     "newsEndpoint": "https://newsapi.org/v2/top-headlines",
     "newsPageSize": "10",
     "newsPage": "1",
+    "newsWidgetRenderIds": {       
+        "container": ".container",
+        "elements": {
+            "items": "#news-items",
+            "header": "#news-header",
+            "bcActive": ".active"
+        }
+    },
+    "channel": {
+        "channelId": "id",
+        "channelName": "name"
+    },
+    "sourcesId": "#news-channels",
     "1": "test int key to test json-num-rem-loader",
     "2": "test int key to test json-num-rem-loader"
 }
