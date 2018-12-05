@@ -1,21 +1,13 @@
-import template from "./app_template.js"
-import RenderStrategyService from "./services/render-startegy-service.js"
-import CommonRenderer from "./services/common-renderer.js"
+import RenderContainer from "./app_template.js"
 
-
-document.addEventListener('DOMContentLoaded', async () => {
+window.onload = async () => {
 
     const container = document.querySelector(".container");
-
-    const commonRenderer = new CommonRenderer();
-    const renderStrategyService = new RenderStrategyService(commonRenderer);
-
-    renderStrategyService.render(container, template());
+    container.innerHTML += RenderContainer();
 
     document.querySelector('#show-news-btn').onclick = async () => {
-        const widgetsFactory = await import(/* webpackChunkName: "widgets-factory" */ "./widgets-factory.js");
-        const option = '#news-channels';
-        const channelWidget = widgetsFactory.default.create('channel-widget', option);
+        const init = await import(/* webpackChunkName: "widget-initializer" */ "./widget-initializer.js");
+        const channelWidget = init.default['channel-widget']();
         await channelWidget.bootstrap();
     }
-});
+}
